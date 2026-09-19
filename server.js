@@ -13,6 +13,9 @@ app.use(express.static(__dirname));
 
 // Fallback for SPA / HTML requests
 app.use((req, res) => {
+  if (req.path.includes('.')) {
+    return res.status(404).send('File not found');
+  }
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
