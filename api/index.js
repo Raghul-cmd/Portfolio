@@ -13,7 +13,7 @@ app.use(express.urlencoded({ extended: true }));
 const messages = [];
 
 // ─── API: Contact Form ────────────────────────────────
-app.post('/api/contact', (req, res) => {
+app.post(['/api/contact', '/contact'], (req, res) => {
   const { name, email, budget, message } = req.body;
 
   if (!name || !email || !message) {
@@ -52,7 +52,7 @@ app.post('/api/contact', (req, res) => {
 });
 
 // ─── API: Get Projects ────────────────────────────────
-app.get('/api/projects', (req, res) => {
+app.get(['/api/projects', '/projects'], (req, res) => {
   res.json({
     ok: true,
     projects: [
@@ -109,7 +109,7 @@ app.get('/api/projects', (req, res) => {
 });
 
 // ─── API: Portfolio Stats ─────────────────────────────
-app.get('/api/stats', (req, res) => {
+app.get(['/api/stats', '/stats'], (req, res) => {
   res.json({
     ok: true,
     stats: {
@@ -123,7 +123,7 @@ app.get('/api/stats', (req, res) => {
 });
 
 // ─── API: Health Check ────────────────────────────────
-app.get('/api/health', (req, res) => {
+app.get(['/api/health', '/health'], (req, res) => {
   res.json({ ok: true, status: 'running', time: new Date().toISOString() });
 });
 

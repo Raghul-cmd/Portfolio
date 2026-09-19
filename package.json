@@ -1,1 +1,16 @@
-{"name":"portfolio","version":"1.0.0","description":"Portfolio with Node.js backend","main":"server.js","scripts":{"start":"node server.js","dev":"node server.js"},"license":"ISC"}
+{
+  "name": "portfolio",
+  "version": "1.0.0",
+  "description": "Portfolio with Node.js backend",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js",
+    "dev": "node server.js"
+  },
+  "dependencies": {
+    "cors": "^2.8.6",
+    "express": "^5.2.1",
+    "nodemailer": "^10.0.10"
+  },
+  "license": "ISC"
+}
