@@ -137,10 +137,15 @@ app.get('/{*splat}', (req, res) => {
   res.sendFile(path.join(__dirname, 'index.html'));
 });
 
-// ─── Start Server ─────────────────────────────────────
-app.listen(PORT, () => {
-  console.log(`\n╔════════════════════════════════════════╗`);
-  console.log(`║  🚀  Portfolio Server Started          ║`);
-  console.log(`║  Open: http://localhost:${PORT}           ║`);
-  console.log(`╚════════════════════════════════════════╝\n`);
-});
+// ─── Start Server / Export for Vercel ─────────────────
+if (require.main === module) {
+  app.listen(PORT, () => {
+    console.log(`\n╔════════════════════════════════════════╗`);
+    console.log(`║  🚀  Portfolio Server Started          ║`);
+    console.log(`║  Open: http://localhost:${PORT}           ║`);
+    console.log(`╚════════════════════════════════════════╝\n`);
+  });
+}
+
+module.exports = app;
+
